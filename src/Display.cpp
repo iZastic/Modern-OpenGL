@@ -24,13 +24,6 @@ Display::Display(int width, int height, const std::string& title)
 	m_isClosed = false;
 }
 
-Display::~Display()
-{
-	SDL_GL_DeleteContext(m_glContext);
-	SDL_DestroyWindow(m_window);
-	SDL_Quit();
-}
-
 void Display::Clear(float r, float g, float b, float a)
 {
 	glClearColor(r, g, b, a);
@@ -51,4 +44,11 @@ void Display::Update()
 bool Display::IsClosed()
 {
 	return m_isClosed;
+}
+
+Display::~Display()
+{
+	SDL_GL_DeleteContext(m_glContext);
+	SDL_DestroyWindow(m_window);
+	SDL_Quit();
 }
